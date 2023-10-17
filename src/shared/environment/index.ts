@@ -4,7 +4,7 @@ export const Environment ={
      */
   LIMIT_OF_LINES: 10,
 
-   /**
+  /**
      * Placeholder displayed in inputs
      */
   SEARCH_INPUT: 'Searching...',   
