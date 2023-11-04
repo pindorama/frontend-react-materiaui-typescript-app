@@ -1,4 +1,4 @@
-import { Box, Icon, IconButton, Typography, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import * as React from 'react';
 
 interface IBaseLayoutOfPageProps {
@@ -7,7 +7,7 @@ interface IBaseLayoutOfPageProps {
     children:  React.ReactNode
 }
 
-export const  BaseLayoutOfPage : React.FC<IBaseLayoutOfPageProps> = ({ children, title, toolbars}) =>{
+export const  BaseLayoutOfPage : React.FC<IBaseLayoutOfPageProps> = ({ children, toolbars}) =>{
   const theme = useTheme();
   // const smDown = useMediaQuery(theme.breakpoints.down('sm');
 
@@ -18,24 +18,36 @@ export const  BaseLayoutOfPage : React.FC<IBaseLayoutOfPageProps> = ({ children,
       <Box>
         Header
       </Box>
-      <Box padding={1} display="flex" alignItems = "center" height={ theme.spacing(12)}>
-        <IconButton>
-          <Icon>
-                menu
-          </Icon>
-        </IconButton>
+      <Box   sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '25vh'
+
         
-        <Typography variant='h5' overflow="hidden" whiteSpace="nowrap" textOverflow="ellipses" >
+
+      }} padding={1} height={ theme.spacing(12)}>
+
+       
+        <img
+          src="https://cdn.ticket.io/companies/DMnDlIN6/img/holder-1080.jpg?45460123%22"
+          alt="Your Image"
+          style={{ maxWidth: '50%', maxHeight: '100%', objectFit: 'cover' }}
+        />
+      
+       
+        
+        {/* <Typography variant='h5' overflow="hidden" whiteSpace="nowrap" textOverflow="ellipses" >
           {title}
         </Typography>
-        
+         */}
       </Box>
 
       <Box>
         {toolbars}
       </Box>
 
-      <Box flex={1} overflow="hidden">
+      <Box >
         { children}
       </Box>
 
