@@ -1,6 +1,6 @@
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Homepage, ListingOfTicketsViewTable } from '../pages';
+import {  ListingOfTicketsViewList, ListingOfTicketsViewTable } from '../pages';
 import { useToolbarContext } from '../shared/contexts/ToolbarContext';
 import { useEffect } from 'react';
 
@@ -29,7 +29,7 @@ export const AppRoutes = () => {
   },[]);
   
   return (<Routes>
-    <Route path='/start-page' element={<Homepage/>} />
+    <Route path='/start-page' element={<ListingOfTicketsViewList/>} />
     <Route path='/tickets-view-list' element={<ListingOfTicketsViewTable/>} />
 
 
