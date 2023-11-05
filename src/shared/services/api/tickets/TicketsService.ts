@@ -2,19 +2,27 @@ import { Environment } from '../../../environment';
 import { Api } from '../axios-config';
 
 
+export interface IAddressDetails {
+  type: string,
+  streetAddress: string,
+  addressLocality: string,
+  addressRegion: null,
+  postalCode: string,
+  addressCountry: string
+}
 
-interface IListOfTickets{
+export interface IListOfTickets{
     title: string,
     startDate: string,
     endDate: string,
     imageUrl: string,
     shopUrl: string,
-    address: object,
+    address: IAddressDetails,
     priceFrom: number
 
 }
 
-interface IDetailsOfTickets{
+export interface IDetailsOfTickets{
     title: string,
     startDate: string,
     endDate: string,

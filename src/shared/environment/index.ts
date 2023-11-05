@@ -13,5 +13,7 @@ export const Environment ={
    * Url base for querying this application's data
    */
   BASE_URL: 'http://localhost:3333',
+
+  EMPTY_LIST:'THERE IS NO REGISTER WITH THIS NAME'
     
 };

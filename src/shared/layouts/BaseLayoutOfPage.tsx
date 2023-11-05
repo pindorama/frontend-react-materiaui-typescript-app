@@ -2,7 +2,6 @@ import { Box, useTheme } from '@mui/material';
 import * as React from 'react';
 
 interface IBaseLayoutOfPageProps {
-    title: string,
     toolbars: React.ReactNode,
     children:  React.ReactNode
 }

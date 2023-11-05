@@ -83,13 +83,14 @@ export const Homepage  = () => {
     const minutes = dateObject.getMinutes().toString().padStart(2, '0');
     return `${hours}:${minutes}`;
   };
+
   
   // const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   // const mdown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
 
   
   return (
-    <BaseLayoutOfPage title="home page" toolbars={(<ToolbarsOfListing showSearchInput />)}>
+    <BaseLayoutOfPage  toolbars={(<ToolbarsOfListing showSearchInput />)}>
 
       <List >       
         {items.map(item => (
