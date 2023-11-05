@@ -1,5 +1,5 @@
 
-import {  Box, Button, List, ListItem, Typography } from '@mui/material';
+import {  Box, Button,  Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import ScheduleOutlinedIcon from '@mui/icons-material/ScheduleOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -73,68 +73,67 @@ export const ListingOfTicketsViewList:React.FC  = () => {
       searchText={search} 
       changingSearchText={ text =>
         setSearchParams({ search: text}, {replace: true})}/>)}>
+      <TableContainer component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
+        <Table>
 
-      <List >       
-        {items.map(item => (
-          <ListItem key={item.title} sx={{
-            display: 'flex', // Use flexbox
-            alignItems: { xs: 'center', sm: 'center',md:'center',lg:'center' }, // Align items vertically
-            flexDirection: { xs: 'column', sm: 'column',md:'row',lg:'row' }, // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
-            justifyContent:  { xs: 'right', sm: 'center',md:'center',lg:'center' } 
+          <TableBody>
+            {items.map(row => (
+              <TableRow key={row.title}>
+                <TableCell>
+                  <Box order={1}  paddingLeft={5} sx={{
+                    display: 'flex', // Use flexbox
+                    alignItems: { xs: 'center', sm: 'center',md:'center',lg:'center' }, // Align items vertically
+                    flexDirection: 'row', // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
+                    justifyContent:  { xs: 'center', sm: 'center',md:'center',lg:'center' } 
 
-          }} >  
-          
-                     
-            <Box order={1}  paddingLeft={5} sx={{
-              display: 'flex', // Use flexbox
-              alignItems: { xs: 'center', sm: 'center',md:'center',lg:'center' }, // Align items vertically
-              flexDirection: 'row', // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
-              justifyContent:  { xs: 'center', sm: 'center',md:'center',lg:'center' } 
+                  }} >
+                    <img
+                      src={row.imageUrl}
+                      alt={row.title}
+                      style={{ width: '450px', height: '250px', objectFit: 'cover' }} />
+                  </Box>               
+                </TableCell>
+                <TableCell><Box order={2} display="flex" flexDirection="column" marginBottom={2}>
+                  <Box display="flex" flexDirection="row" marginTop={2}>
 
-            }} >
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                style={{ width: '450px', height: '250px', objectFit: 'cover' }} />
-            </Box>
-            
-            <Box order={2} display="flex" flexDirection="column" marginBottom={2}>
-
-              <Typography variant="h6">{item.title}</Typography>
-
-              <Box display="flex" flexDirection="row" marginTop={2}>
+                    <Typography variant="h6">{row.title}</Typography>
+                  </Box>
+                  <Box display="flex" flexDirection="row" marginTop={2}>
 
 
-                <Box display="flex" flexDirection="row" marginRight={2}>
+                    <Box display="flex" flexDirection="row" marginRight={2}>
 
-                  <CalendarMonthOutlinedIcon></CalendarMonthOutlinedIcon>
-                  <Typography> {` ${formatDate(item.startDate)}`} </Typography>
-                </Box>
-                <Box display="flex" flexDirection="row">
-                  <ScheduleOutlinedIcon></ScheduleOutlinedIcon>
-                  <Typography>{` ${formatTime(item.startDate)}`}</Typography>
-                </Box>
+                      <CalendarMonthOutlinedIcon></CalendarMonthOutlinedIcon>
+                      <Typography> {` ${formatDate(row.startDate)}`} </Typography>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                      <ScheduleOutlinedIcon></ScheduleOutlinedIcon>
+                      <Typography>{` ${formatTime(row.startDate)}`}</Typography>
+                    </Box>
 
-              </Box>
+                  </Box>
 
-              <Box display="flex" flexDirection="row">
-                <LocationOnOutlinedIcon></LocationOnOutlinedIcon>
-                <Typography>{`${item.address.streetAddress} ${item.address.addressLocality}`}</Typography>
+                  <Box display="flex" flexDirection="row">
+                    <LocationOnOutlinedIcon></LocationOnOutlinedIcon>
+                    <Typography>{`${row.address.streetAddress} ${row.address.addressLocality}`}</Typography>
 
-              </Box>
-              <Box display="flex" flexDirection="row">
+                  </Box>
+                  <Box display="flex" flexDirection="row">
 
-                <ConfirmationNumberIcon></ConfirmationNumberIcon>
-                <Typography> Tickets ab {item.priceFrom}€</Typography>
+                    <ConfirmationNumberIcon></ConfirmationNumberIcon>
+                    <Typography> Tickets ab {row.priceFrom}€</Typography>
 
-              </Box>
-            </Box>
-            <Box order={3}  marginLeft={8}  marginRight={0}>
-              <Button variant="contained" color="primary">Zu den Tickets</Button>
-            </Box>        
-          </ListItem>
-        ))}
-      </List> 
+                  </Box>
+                </Box></TableCell>
+                <TableCell> <Box order={3}  marginLeft={8}  marginRight={0}>
+                  <Button variant="contained" color="primary">Zu den Tickets</Button>
+                </Box>  </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>     
+        </Table>
+      </TableContainer>  
+    
 
     </BaseLayoutOfPage>
   );

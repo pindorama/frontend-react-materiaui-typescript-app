@@ -79,14 +79,12 @@ export const ToolbarsOfListing: React.FC<IToolbarsOfListingProps> = ({
       </Box>
 
       <Box  flex={1} display="flex" flexDirection="row" justifyContent="end">
-
-     
-
-        <Box  flex={1} display="flex" p={2} flexDirection="row" justifyContent="end" >
+ 
+        <Box  order={2} flex={1} display="flex" p={2} flexDirection="row" justifyContent="end" >
           {showSearchInput && (<TextField  
             variant="outlined"
 
-            style={{ position: 'relative', top: -2, right:10 }}
+            style={{ position: 'relative', top: 5, right:10 }}
 
             sx={{
               width: '290px', // Set the width
@@ -106,9 +104,18 @@ export const ToolbarsOfListing: React.FC<IToolbarsOfListingProps> = ({
               changingSearchText?.(e.target.value)}/>
           )}
           
-          <Typography> Ansicht:  </Typography>
+          <Typography  sx={{
+            display: 'flex',
+            overflowX: 'auto',
+            position: 'relative',
+            top: 5,
+          }}> Ansicht:  </Typography>
 
-          <List component="nav">
+          <List component="nav"  sx={{
+            display: 'flex',
+            overflowX: 'auto',
+            padding: 0,
+          }}>
             {toolbarOptions.map(toolbarOption => (
               <ListItemButtonLink
                 to={toolbarOption.path}
@@ -116,44 +123,11 @@ export const ToolbarsOfListing: React.FC<IToolbarsOfListingProps> = ({
                 icon={toolbarOption.icon}
               />
             ))}
-          </List>
-
-        
-
+          </List> 
         </Box>
 
-        {/* <List component="nav">
-          <ListItemButton>
-            <ListItemIcon>
-              <Box  flex={1} display="flex" p={2} flexDirection="row" justifyItems="space-around" >
-                <Typography> Ansicht:  </Typography>
-
-                <GridViewIcon></GridViewIcon>
-                <FormatListBulletedIcon></FormatListBulletedIcon>
-                <CalendarMonthOutlinedIcon></CalendarMonthOutlinedIcon>
-
-              </Box>
-             
-            </ListItemIcon>
-          </ListItemButton>
-        </List> */}
-
-
       </Box>
-      {/* <Box flex={1} display="flex" justifyContent="end"> */}
-
-      {/* { showNewButton &&  (   
-          <Button
-            color='primary'
-            disableElevation
-            variant='contained'
-            onClick={clickOnTheButton}
-            endIcon={<Icon>add</Icon>}
-          >{newButtonText}</Button> 
-        )}
-    */}
-      {/* </Box> */}
-    
+  
     </Box>
 
   );
