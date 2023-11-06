@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/frontend-react-materiaui-typescript-app/static/js/main.ffeefce4.js",
+    "main.js": "/frontend-react-materiaui-typescript-app/static/js/main.3fef9b53.js",
     "index.html": "/frontend-react-materiaui-typescript-app/index.html",
-    "main.ffeefce4.js.map": "/frontend-react-materiaui-typescript-app/static/js/main.ffeefce4.js.map"
+    "main.3fef9b53.js.map": "/frontend-react-materiaui-typescript-app/static/js/main.3fef9b53.js.map"
   },
   "entrypoints": [
-    "static/js/main.ffeefce4.js"
+    "static/js/main.3fef9b53.js"
   ]
 }
