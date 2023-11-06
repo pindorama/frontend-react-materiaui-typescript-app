@@ -1,5 +1,5 @@
 
-import {  Box, Button,  Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
+import {  Box, Button, Table, TableBody, TableCell, TableContainer, TableRow, Typography,styled} from '@mui/material';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import ScheduleOutlinedIcon from '@mui/icons-material/ScheduleOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -20,6 +20,22 @@ export const ListingOfTicketsViewList:React.FC  = () => {
 
 
   const [items, setItems] = useState<IListOfTickets[]>([]);
+
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+      border: 10,
+    },
+    
+    '&:last-child': {
+      borderBottom: 'none', // Remove border for the last row
+    },
+  
+  }));
 
 
   const formatDate = (dateString: string): string => {
@@ -73,12 +89,12 @@ export const ListingOfTicketsViewList:React.FC  = () => {
       searchText={search} 
       changingSearchText={ text =>
         setSearchParams({ search: text}, {replace: true})}/>)}>
-      <TableContainer component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
-        <Table>
+      <TableContainer  sx={{ m: 1, width: 'auto' }}>
+        <Table >
 
           <TableBody>
             {items.map(row => (
-              <TableRow key={row.title}>
+              <StyledTableRow key={row.title}>
                 <TableCell>
                   <Box order={1}  paddingLeft={5} sx={{
                     display: 'flex', // Use flexbox
@@ -128,7 +144,7 @@ export const ListingOfTicketsViewList:React.FC  = () => {
                 <TableCell> <Box order={3}  marginLeft={8}  marginRight={0}>
                   <Button variant="contained" color="primary">Zu den Tickets</Button>
                 </Box>  </TableCell>
-              </TableRow>
+              </StyledTableRow>
             ))}
           </TableBody>     
         </Table>
