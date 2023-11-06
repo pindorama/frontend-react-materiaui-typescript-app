@@ -1,18 +1,18 @@
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
-import { AppThemeContext, ToolbarProvider, } from './shared/contexts';
+import { ToolbarProvider, } from './shared/contexts';
 
 export const App = () => {
   return (
-    <AppThemeContext >
-      <ToolbarProvider>
-        <BrowserRouter>
+    <ToolbarProvider>
 
-          <AppRoutes/>
 
-        </BrowserRouter>
-      </ToolbarProvider>
-    </AppThemeContext>
+      <BrowserRouter>
+
+        <AppRoutes/>
+
+      </BrowserRouter>
+    </ToolbarProvider>
 
   );
 };
