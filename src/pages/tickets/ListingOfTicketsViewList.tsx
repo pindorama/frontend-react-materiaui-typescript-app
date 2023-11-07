@@ -1,5 +1,5 @@
 
-import {  Box, Button, Table, TableBody, TableCell, TableContainer, TableRow, Typography,styled} from '@mui/material';
+import {  Box, Button, Typography, Grid} from '@mui/material';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import ScheduleOutlinedIcon from '@mui/icons-material/ScheduleOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -22,20 +22,7 @@ export const ListingOfTicketsViewList:React.FC  = () => {
   const [items, setItems] = useState<IListOfTickets[]>([]);
 
 
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.background.default,
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-      border: 10,
-    },
-    
-    '&:last-child': {
-      borderBottom: 'none', // Remove border for the last row
-    },
-  
-  }));
+
 
 
   const formatDate = (dateString: string): string => {
@@ -83,73 +70,94 @@ export const ListingOfTicketsViewList:React.FC  = () => {
   }, [search]);
   
   
-  
+
   return(
     <BaseLayoutOfPage  toolbars={(<ToolbarsOfListing showSearchInput   
       searchText={search} 
       changingSearchText={ text =>
         setSearchParams({ search: text}, {replace: true})}/>)}>
-      <TableContainer  sx={{ m: 1, width: 'auto' }}>
-        <Table >
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid
+          container
+          spacing={{ xs: 4, md: 3 }}
+          columns={{ xs: 1, sm: 2, md: 36,lg: 36, xl: 36 }}
+        >
 
-          <TableBody>
-            {items.map(row => (
-              <StyledTableRow key={row.title}>
-                <TableCell>
-                  <Box order={1}  paddingLeft={5} sx={{
-                    display: 'flex', // Use flexbox
-                    alignItems: { xs: 'center', sm: 'center',md:'center',lg:'center' }, // Align items vertically
-                    flexDirection: 'row', // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
-                    justifyContent:  { xs: 'center', sm: 'center',md:'center',lg:'center' } 
+          {items.map(row => (
+            <><Grid item xs  key={row.address.addressLocality}>
+              <Box order={1}  paddingLeft={5} sx={{
+                display: 'flex', // Use flexbox
+                alignItems: { xs: 'center', sm: 'center',md:'left',lg:'left' }, // Align items vertically
+                flexDirection: 'row', // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
+                justifyContent:  { xs: 'center', sm: 'center',md:'center',lg:'center' } 
 
-                  }} >
-                    <img
-                      src={row.imageUrl}
-                      alt={row.title}
-                      style={{ width: '450px', height: '250px', objectFit: 'cover' }} />
-                  </Box>               
-                </TableCell>
-                <TableCell><Box order={2} display="flex" flexDirection="column" marginBottom={2}>
-                  <Box display="flex" flexDirection="row" marginTop={2}>
+              }} >
+                <img
+                  src={row.imageUrl}
+                  alt={row.title}
+                  style={{ width: '450px', height: '250px', objectFit: 'cover' }} />
+              </Box>     
+            </Grid>
+            <Grid item xs={6} >
+              <Box order={2} flexDirection="column" marginBottom={2} sx={{
+                display: 'flex', // Use flexbox
+                alignItems: { xs: 'center', sm: 'center',md:'left' }, // Align items vertically
+                flexDirection: 'column', // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
+                justifyContent:  { xs: 'right', sm: 'center',md:'left'} 
 
-                    <Typography variant="h6">{row.title}</Typography>
-                  </Box>
-                  <Box display="flex" flexDirection="row" marginTop={2}>
+              }}>
+                <Box display="flex" flexDirection="row" marginTop={2}>
+
+                  <Typography variant="h6">{row.title}</Typography>
+                </Box>
+                <Box display="flex" flexDirection="row" marginTop={2}>
 
 
-                    <Box display="flex" flexDirection="row" marginRight={2}>
+                  <Box display="flex" flexDirection="row" marginRight={2}>
 
-                      <CalendarMonthOutlinedIcon></CalendarMonthOutlinedIcon>
-                      <Typography> {` ${formatDate(row.startDate)}`} </Typography>
-                    </Box>
-                    <Box display="flex" flexDirection="row">
-                      <ScheduleOutlinedIcon></ScheduleOutlinedIcon>
-                      <Typography>{` ${formatTime(row.startDate)}`}</Typography>
-                    </Box>
-
-                  </Box>
-
-                  <Box display="flex" flexDirection="row">
-                    <LocationOnOutlinedIcon></LocationOnOutlinedIcon>
-                    <Typography>{`${row.address.streetAddress} ${row.address.addressLocality}`}</Typography>
-
+                    <CalendarMonthOutlinedIcon></CalendarMonthOutlinedIcon>
+                    <Typography> {` ${formatDate(row.startDate)}`} </Typography>
                   </Box>
                   <Box display="flex" flexDirection="row">
-
-                    <ConfirmationNumberIcon></ConfirmationNumberIcon>
-                    <Typography> Tickets ab {row.priceFrom}€</Typography>
-
+                    <ScheduleOutlinedIcon></ScheduleOutlinedIcon>
+                    <Typography>{` ${formatTime(row.startDate)}`}</Typography>
                   </Box>
-                </Box></TableCell>
-                <TableCell> <Box order={3}  marginLeft={8}  marginRight={0}>
-                  <Button variant="contained" color="primary">Zu den Tickets</Button>
-                </Box>  </TableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>     
-        </Table>
-      </TableContainer>  
-    
+
+                </Box>
+
+                <Box display="flex" flexDirection="row">
+                  <LocationOnOutlinedIcon></LocationOnOutlinedIcon>
+                  <Typography>{`${row.address.streetAddress} ${row.address.addressLocality}`}</Typography>
+
+                </Box>
+                <Box display="flex" flexDirection="row">
+
+                  <ConfirmationNumberIcon></ConfirmationNumberIcon>
+                  <Typography> Tickets ab {row.priceFrom}€</Typography>
+
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={1} sm={12} md={12}  xl={12}>
+              <Box order={3}  marginLeft={8}  marginRight={0} sx={{
+                display: 'flex', // Use flexbox
+                alignItems: { xs: 'center', sm: 'center',md:'center',lg:'center' }, // Align items vertically
+                flexDirection: 'row', // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
+                justifyContent:  { xs: 'right', sm: 'center',md:'center',lg:'center' } 
+
+              }}>
+                <Button variant="contained" color="primary">Zu den Tickets</Button>
+              </Box> 
+
+            </Grid></>
+            
+
+          ))}
+
+         
+        </Grid>
+      </Box>
+     
 
     </BaseLayoutOfPage>
   );

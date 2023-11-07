@@ -15,7 +15,7 @@ export const  BaseLayoutOfPage : React.FC<IBaseLayoutOfPageProps> = ({ children,
     <Box height="100%" display="flex" flexDirection="column" gap = {1}>
 
       <Box>
-        Header
+        
       </Box>
       <Box   sx={{
         display: 'flex',
@@ -51,7 +51,6 @@ export const  BaseLayoutOfPage : React.FC<IBaseLayoutOfPageProps> = ({ children,
       </Box>
 
       <Box>
-       Footer
       </Box>
 
      
