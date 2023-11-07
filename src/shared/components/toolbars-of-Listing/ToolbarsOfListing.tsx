@@ -100,22 +100,22 @@ export const ToolbarsOfListing: React.FC<IToolbarsOfListingProps> = ({
   return (
     <Box 
       height={theme.spacing(8)} 
-      marginX={3}
+      marginX={10}
       padding={0} 
-      paddingX={2} 
-      gap={1} 
+      paddingX={0} 
+      gap={0} 
       alignItems="center" sx={{
         display: 'flex', // Use flexbox
         alignItems: { xs: 'center', sm: 'center',md:'center',lg:'center' }, // Align items vertically
         flexDirection: { xs: 'column', sm: 'column',md:'row',lg:'row' }, // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
         justifyContent:  { xs: 'right', sm: 'center',md:'center',lg:'center' }, 
-        marginBottom:{ xs: 12, sm: 1,md:1,lg:1}, 
+        marginBottom:{ xs: 12, sm: 6,md:1,lg:1}, 
 
       }
       }  >
       
       
-      <Box flexGrow={1}>
+      <Box flexGrow={1} >
         <Typography> Tickets für Bootshaus</Typography>
       </Box>
 

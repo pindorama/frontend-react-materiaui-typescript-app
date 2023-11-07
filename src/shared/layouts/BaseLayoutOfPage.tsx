@@ -21,8 +21,9 @@ export const  BaseLayoutOfPage : React.FC<IBaseLayoutOfPageProps> = ({ children,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '25vh'
-
+        height:'25vh'
+    
+       
         
 
       }} padding={1} height={ theme.spacing(12)}>
@@ -31,7 +32,7 @@ export const  BaseLayoutOfPage : React.FC<IBaseLayoutOfPageProps> = ({ children,
         <img
           src="https://cdn.ticket.io/companies/DMnDlIN6/img/holder-1080.jpg?45460123%22"
           alt="Your Image"
-          style={{ maxWidth: '50%', maxHeight: '100%', objectFit: 'cover' }}
+          style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         />
       
        
