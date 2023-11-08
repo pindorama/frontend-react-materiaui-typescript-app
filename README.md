@@ -9,7 +9,7 @@ You can now clone your repository locally and start making changes. Push your ch
 ### Live Demo
 [http://pindorama.github.io/frontend-react-materiaui-typescript-app](http://pindorama.github.io/frontend-react-materiaui-typescript-app)
 
-
+*GH Pages will only host static files, it's not your server (Json Server) to install libraries or run any code. so can't see the all page through github pages, i am looking for forwarding to deploy it in web server instead, that why  we can't see the all page through.
 
 ## Getting Started 🚀
 Set up your local development environment by following these steps:
@@ -36,6 +36,9 @@ yarn run json-server -w -p 3333 ./mock/database.json
 # or
 yarn mock
 ```
+
+
+*GH Pages will only host static files, it's not your server to install libraries or run any code.
 
 The live development website should now appear at [http://localhost:3333](http://localhost:3333).
 
