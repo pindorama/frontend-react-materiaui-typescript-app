@@ -5,8 +5,6 @@ import { ToolbarProvider, } from './shared/contexts';
 export const App = () => {
   return (
     <ToolbarProvider>
-
-
       <BrowserRouter>
 
         <AppRoutes/>
