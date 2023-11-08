@@ -125,7 +125,7 @@ export const ListingOfTicketsViewTable : React.FC = () =>{
 
                   </Box>                </Box>  </TableCell>
                 <TableCell> <Box order={3}  marginLeft={8}  marginRight={0}>
-                  <Button variant="contained" color="primary">Zu den Tickets </Button>
+                  <Button variant="contained" color="inherit" size="large">Zu den Tickets &gt;</Button>
                 </Box>  </TableCell>
               </StyledTableRow>
             ))}

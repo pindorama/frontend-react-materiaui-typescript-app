@@ -14,8 +14,6 @@ import { useSearchParams } from 'react-router-dom';
 
 
 
-
-
 export const ListingOfTicketsViewList:React.FC  = () => {
   const [ searchParams, setSearchParams ] = useSearchParams();
   const { debounce } = useDebounce();
@@ -24,11 +22,9 @@ export const ListingOfTicketsViewList:React.FC  = () => {
   const [items, setItems] = useState<IListOfTickets[]>([]);
 
 
-  const buttonStyle = {
-    backgroundColor: 'black',
-    color: 'white',
 
-  };
+
+
   const formatDate = (dateString: string): string => {
     const dateObject = new Date(dateString);
   
@@ -50,6 +46,7 @@ export const ListingOfTicketsViewList:React.FC  = () => {
 
 
   
+
 
   const search = useMemo(() => {
     return searchParams.get('search')  || '';
@@ -106,9 +103,9 @@ export const ListingOfTicketsViewList:React.FC  = () => {
             <Grid item xs={6} >
               <Box order={2} flexDirection="column" marginBottom={2} sx={{
                 display: 'flex', // Use flexbox
-                alignItems: { xs: 'center', sm: 'center',md:'left' }, // Align items vertically
+                alignItems: {  }, // Align items vertically
                 flexDirection: 'column', // xs, extra-small: 0px. sm, small: 600px. md, medium: 900px. lg, large: 1200px.
-                justifyContent:  { xs: 'right', sm: 'center',md:'left'} 
+                justifyContent:  {  md:'left'} 
 
               }}>
                 <Box display="flex" flexDirection="row" marginTop={2}>
@@ -151,7 +148,7 @@ export const ListingOfTicketsViewList:React.FC  = () => {
                 justifyContent:  { xs: 'right', sm: 'center',md:'center',lg:'center' } 
 
               }}>
-                <Button variant="contained" style={buttonStyle}>Zu den Tickets &gt;</Button>
+                <Button variant="contained" color="inherit">Zu den Tickets &gt;</Button>
               </Box> 
 
             </Grid></>
