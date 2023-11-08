@@ -14,6 +14,8 @@ import { useSearchParams } from 'react-router-dom';
 
 
 
+
+
 export const ListingOfTicketsViewList:React.FC  = () => {
   const [ searchParams, setSearchParams ] = useSearchParams();
   const { debounce } = useDebounce();
@@ -22,9 +24,11 @@ export const ListingOfTicketsViewList:React.FC  = () => {
   const [items, setItems] = useState<IListOfTickets[]>([]);
 
 
+  const buttonStyle = {
+    backgroundColor: 'black',
+    color: 'white',
 
-
-
+  };
   const formatDate = (dateString: string): string => {
     const dateObject = new Date(dateString);
   
@@ -45,6 +49,7 @@ export const ListingOfTicketsViewList:React.FC  = () => {
   };
 
 
+  
 
   const search = useMemo(() => {
     return searchParams.get('search')  || '';
@@ -146,7 +151,7 @@ export const ListingOfTicketsViewList:React.FC  = () => {
                 justifyContent:  { xs: 'right', sm: 'center',md:'center',lg:'center' } 
 
               }}>
-                <Button variant="contained" color="primary">Zu den Tickets</Button>
+                <Button variant="contained" style={buttonStyle}>Zu den Tickets &gt;</Button>
               </Box> 
 
             </Grid></>
